@@ -1,4 +1,11 @@
 {
+  "name": "bookstore-testing",
+  "version": "1.0.0",
+  "description": "Testing application for a bookstore",
+  "main": "bookManager.js",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "jest": "^29.7.0"
   }
