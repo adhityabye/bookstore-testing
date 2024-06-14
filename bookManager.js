@@ -35,6 +35,19 @@ class BookManager {
       { rating: -1 }
     );
   }
+
+  listAllBooks() {
+    return this.books;
+  }
+
+  findBooksByAuthor(author) {
+    const booksByAuthor = this.books.filter((book) => book.author === author);
+    if (booksByAuthor.length === 0) {
+      console.log("No books found by this author");
+      return [];
+    }
+    return booksByAuthor;
+  }
 }
 
 module.exports = BookManager;

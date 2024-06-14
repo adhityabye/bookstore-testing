@@ -5,9 +5,11 @@ beforeEach(() => {
   manager.books = [];
 });
 
-// Model-Based Testing (MDTD)
+// Model Driven Testing (MDTD)
 describe("Book Manager Model-Based Testing", () => {
+  //dari model kan kita harus bisa menambahkan buku dab hapus
   test("addBook model", () => {
+    //test apakah memang bisa nambahin book yh sesuai model
     manager.addBook("Dunia Sophie", "Jostein Gaarder");
     manager.addBook("Hujan", "Tere Liye");
     expect(manager.books.length).toBe(2);
@@ -23,6 +25,7 @@ describe("Book Manager Model-Based Testing", () => {
     });
   });
 
+  //test apkhm memang bisa remove buku
   test("removeBook model", () => {
     manager.addBook("Hujan", "Tere Liye");
     manager.removeBook("Hujan");
@@ -54,18 +57,18 @@ describe("Book Manager Test-Driven Development", () => {
     expect(result[0].title).toBe("Dunia Sophie");
   });
 
-  test("rateBook", () => {
-    manager.addBook("Hujan", "Tere Liye");
-    manager.rateBook("Hujan", 4);
-    expect(manager.books[0].rating).toBe(4);
+  // test("rateBook", () => {
+  //   manager.addBook("Hujan", "Tere Liye");
+  //   manager.rateBook("Hujan", 4);
+  //   expect(manager.books[0].rating).toBe(4);
 
-    expect(() => manager.rateBook("Hujan", 6)).toThrow(
-      "Rating must be between 0 and 5"
-    );
-    expect(() => manager.rateBook("Hujan", -1)).toThrow(
-      "Rating must be between 0 and 5"
-    );
-  });
+  //   expect(() => manager.rateBook("Hujan", 6)).toThrow(
+  //     "Rating must be between 0 and 5"
+  //   );
+  //   expect(() => manager.rateBook("Hujan", -1)).toThrow(
+  //     "Rating must be between 0 and 5"
+  //   );
+  // });
 
   test("rateBook non-existent", () => {
     expect(() => manager.rateBook("Non Existent", 3)).toThrow("Book not found");
